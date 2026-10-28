@@ -13,6 +13,8 @@ cd web-viewer
 
 `configurar.ps1` crea `go2rtc.yaml` (contiene credenciales, está en `.gitignore`). También puedes copiar `go2rtc.yaml.example` y editarlo a mano.
 
+![Visor web](img/web-visor.png)
+
 ## Uso
 
 - Cada cámara que aparezca en `streams:` se muestra en la cuadrícula.

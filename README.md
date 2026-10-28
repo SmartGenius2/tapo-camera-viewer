@@ -9,6 +9,8 @@ Visores **solo para red local (LAN)** de cámaras TP-Link Tapo (probado con **Ta
 | Visor web | [`web-viewer/`](web-viewer/) | Página en el navegador (WebRTC) servida localmente con [go2rtc](https://github.com/AlexxIT/go2rtc). |
 | App Android TV | [`android-tv/`](android-tv/) | **Tapo TV Viewer**: cuadrícula de cámaras en el televisor, RTSP directo con Media3/ExoPlayer. |
 
+![Cuadrícula en la app de TV](docs/img/tv-inicio.png)
+
 ## Características
 
 **App Android TV**
