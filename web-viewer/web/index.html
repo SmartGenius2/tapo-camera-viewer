@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mis Cámaras Tapo</title>
+<style>
+  :root { --bg:#0f1115; --card:#181b22; --fg:#e8eaf0; --mut:#8b92a5; --acc:#4f8cff; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg); font:15px system-ui,sans-serif; }
+  header { padding:14px 20px; display:flex; justify-content:space-between; align-items:center; }
+  h1 { font-size:18px; margin:0; }
+  main { display:grid; grid-template-columns:repeat(auto-fit,minmax(380px,1fr)); gap:16px; padding:0 20px 20px; }
+  .cam { background:var(--card); border-radius:10px; overflow:hidden; }
+  .cam h2 { font-size:14px; margin:0; padding:10px 14px; display:flex; justify-content:space-between; }
+  .cam h2 span { color:var(--mut); font-weight:400; }
+  .video { aspect-ratio:16/9; background:#000; }
+  .video video { width:100%; height:100%; object-fit:contain; display:block; }
+  .bar { display:flex; gap:8px; padding:10px 14px; }
+  button { background:#262b36; color:var(--fg); border:0; border-radius:6px; padding:7px 14px; cursor:pointer; font:inherit; }
+  button:hover { background:var(--acc); }
+</style>
+</head>
+<body>
+<header><h1>Mis Cámaras Tapo</h1><span id="status" style="color:var(--mut)"></span></header>
+<main id="grid"></main>
+
+<script type="module">
+import './video-stream.js';
+
+// Las cámaras se leen de go2rtc (streams definidos en go2rtc.yaml); las credenciales no se muestran.
+const streams = await (await fetch('api/streams')).json();
+const CAMS = Object.entries(streams).map(([id, s]) => {
+  const url = s.producers?.[0]?.url ?? '';
+  return { id, name: id, ip: url.replace(/^.*@/, '').replace(/^rtsp:\/\//, '').split(/[:\/]/)[0] };
+});
+document.getElementById('status').textContent = `${CAMS.length} cámara(s)`;
+const grid = document.getElementById('grid');
+
+function mount(cam) {
+  const el = document.createElement('div');
+  el.className = 'cam';
+  el.innerHTML = `
+    <h2>${cam.name} <span>${cam.ip}</span></h2>
+    <div class="video"></div>
+    <div class="bar">
+      <button data-a="toggle">Pausa</button>
+      <button data-a="reload">Recargar</button>
+    </div>`;
+  grid.append(el);
+  const box = el.querySelector('.video');
+
+  const load = () => {
+    box.innerHTML = '';
+    const vs = document.createElement('video-stream');
+    vs.mode = 'webrtc,mse,hls';
+    vs.background = true;
+    vs.src = new URL(`api/ws?src=${cam.id}`, location.href);
+    box.append(vs);
+    el.querySelector('[data-a=toggle]').textContent = 'Pausa';
+  };
+  load();
+
+  el.querySelector('[data-a=reload]').onclick = load;
+  el.querySelector('[data-a=toggle]').onclick = (e) => {
+    const v = box.querySelector('video');
+    if (!v) return;
+    if (v.paused) { v.play(); e.target.textContent = 'Pausa'; }
+    else { v.pause(); e.target.textContent = 'Play'; }
+  };
+}
+CAMS.forEach(mount);
+</script>
+</body>
+</html>

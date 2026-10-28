@@ -1,0 +1,6 @@
+# Archivos locales / secretos
+local.properties
+*.apk
+*.log
+.idea/
+.vscode/

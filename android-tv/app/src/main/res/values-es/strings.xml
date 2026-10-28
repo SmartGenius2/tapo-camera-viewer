@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings">Ajustes</string>
+    <string name="back">Volver</string>
+    <string name="save">Guardar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="delete">Eliminar</string>
+    <string name="edit">Editar</string>
+    <string name="add_camera">Agregar cámara</string>
+    <string name="move_up">Subir</string>
+    <string name="move_down">Bajar</string>
+    <string name="yes">Sí</string>
+    <string name="no">No</string>
+
+    <string name="default_description">Mis cámaras</string>
+    <string name="no_cameras">Aún no hay cámaras</string>
+    <string name="no_cameras_hint">Agrega una con su IP y la Cuenta de cámara de la app Tapo.</string>
+    <string name="status_connecting">Conectando…</string>
+    <string name="status_no_signal">Sin señal</string>
+    <string name="status_retrying">Sin señal, reintentando…</string>
+
+    <string name="sound_on">Sonido activado</string>
+    <string name="sound_off">Sonido desactivado</string>
+    <string name="hint_multi">◀ ▶ cambiar cámara   OK: sonido   Atrás: volver</string>
+    <string name="hint_single">OK: sonido   Atrás: volver</string>
+
+    <string name="tab_cameras">Cámaras</string>
+    <string name="tab_look">Personalización</string>
+    <string name="tab_about">Acerca de</string>
+    <string name="cameras_title">Cámaras (%1$d)</string>
+    <string name="cameras_warning">Atención: tienes %1$d cámaras. Se recomiendan hasta 4 a la vez; con más, la cuadrícula puede ir lenta en este TV.</string>
+    <string name="look_title">Personalización</string>
+    <string name="field_app_title">Título de la app</string>
+    <string name="field_app_description">Descripción</string>
+    <string name="accent_label">Color de acento</string>
+    <string name="accent_blue">Azul</string>
+    <string name="accent_green">Verde</string>
+    <string name="accent_orange">Naranja</string>
+    <string name="accent_pink">Rosa</string>
+    <string name="accent_purple">Morado</string>
+    <string name="columns_label">Columnas de la cuadrícula</string>
+    <string name="columns_auto">Auto</string>
+    <string name="quality_label">Calidad en la cuadrícula</string>
+    <string name="quality_low">Baja (más fluida)</string>
+    <string name="quality_high">Alta (HD)</string>
+    <string name="toggle_names">Mostrar el nombre de cada cámara</string>
+    <string name="toggle_clock">Mostrar reloj</string>
+    <string name="toggle_mute_fullscreen">Silenciar en pantalla completa</string>
+    <string name="language_label">Idioma</string>
+    <string name="language_system">Sistema</string>
+    <string name="launcher_note">El nombre y el icono que aparecen en el menú de inicio del TV no se pueden cambiar desde la app.</string>
+    <string name="about_title">Acerca de</string>
+    <string name="about_version">Tapo TV Viewer %1$s</string>
+    <string name="about_desc">Muestra las cámaras Tapo de tu red por RTSP, directo desde el TV y sin servidor intermedio.</string>
+    <string name="about_count">Cámaras configuradas: %1$d</string>
+    <string name="about_privacy">Las contraseñas se guardan cifradas en este TV y solo se usan para conectar con las cámaras en tu red local.</string>
+
+    <string name="form_add_title">Agregar cámara</string>
+    <string name="form_edit_title">Editar cámara</string>
+    <string name="field_name">Nombre</string>
+    <string name="field_ip">Dirección IP</string>
+    <string name="field_port">Puerto</string>
+    <string name="field_user">Usuario (Cuenta de cámara)</string>
+    <string name="field_password">Contraseña (Cuenta de cámara)</string>
+    <string name="field_stream_full">Stream en pantalla completa (stream1 = HD)</string>
+    <string name="field_stream_grid">Stream en la cuadrícula (stream2 = baja)</string>
+</resources>
